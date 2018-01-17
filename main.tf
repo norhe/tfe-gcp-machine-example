@@ -29,7 +29,7 @@ resource "google_compute_instance" "web-server" {
   }
 
   network_interface {
-    network = "${data.terraform_remote_state.vpc.network_self_link}"
+    subnetwork = "${data.terraform_remote_state.vpc.subnetwork_self_link}"
 
     access_config {
       // Ephemeral IP, allow outside connections
