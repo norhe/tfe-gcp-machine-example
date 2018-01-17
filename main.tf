@@ -19,6 +19,8 @@ resource "google_compute_instance" "web-server" {
   name         = "${data.terraform_remote_state.vpc.region}-web-server"
   machine_type = "${var.machine_type}"
 
+  tags = ["web"]
+
   # all US regions have a 'c' zone
   zone = "${data.terraform_remote_state.vpc.region}-c"
 
